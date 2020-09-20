@@ -1,7 +1,7 @@
 # Reddit-Wallpaper-Scraper
 Basic python script to pull wallpapers from subreddits
 
-This script allows a user to choose from a list of resolutions, and batch download wallpapers that are shared on reddit. 
+This script allows a user to choose from a list of resolutions, and batch download wallpapers that are shared on a list of user chosen subreddits. 
 
 To use this script:
 1) Install the needed libaries by running pip install -r requirements.txt
