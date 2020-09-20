@@ -31,7 +31,6 @@ def get_size(uri):
 	        p.feed(data)
 	        if p.image:
 	            return size, p.image.size
-	            break
 	    file.close()
 	    return size, None
 
@@ -55,7 +54,7 @@ def sub_exists(sub):
     try:
         reddit.subreddits.search_by_name(sub, exact=True)
     except Exception as e:
-        print("Oops, it appears that the subreddit r/{} does not exist".format(sub))
+        print("Oops, there was a problem finding that sub or another issue with the reddit API")
         logging.info(e)
         exists= False
     return exists
@@ -64,11 +63,11 @@ def sub_exists(sub):
 #Determine if a URL from reddit is valid
 def check_url(url):
 	try:
-	    conn = urllib.request.urlopen(url)
+	    connection = urllib.request.urlopen(url)
 	except urllib.error.HTTPError as e:
 	    logging.info(url,e.code)
 	except urllib.error.URLError as e:
-	    logging.info(url,URLError)
+	    logging.info(url,e.reason)
 	else:
 	    # 200 -- link worked!
 	    download_image(url)
